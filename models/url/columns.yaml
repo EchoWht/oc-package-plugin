@@ -1,0 +1,15 @@
+columns:
+    title:
+        label: 'blskye.package::lang.url.title'
+        type: text
+        searchable: true
+        sortable: true
+    content:
+        label: 'blskye.package::lang.url.content'
+        type: text
+        searchable: true
+        sortable: true
+    url:
+        label: 'blskye.package::lang.package.url'
+        type: text
+        width: '100'

@@ -1,0 +1,14 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table blskye_package_url'
+    - builder_table_create_blskye_package_url.php
+1.0.3:
+    - 'Created table blskye_package_categories'
+    - builder_table_create_blskye_package_categories.php
+1.0.4:
+    - 'Created table blskye_package_url_categories'
+    - builder_table_create_blskye_package_url_categories.php
+1.0.5:
+    - 'Updated table blskye_package_categories'
+    - builder_table_update_blskye_package_categories.php

@@ -1,0 +1,10 @@
+name: Url
+form: $/blskye/package/models/url/fields.yaml
+modelClass: Blskye\Package\Models\Url
+defaultRedirect: blskye/package/url
+create:
+    redirect: 'blskye/package/url/update/:id'
+    redirectClose: blskye/package/url
+update:
+    redirect: blskye/package/url
+    redirectClose: blskye/package/url

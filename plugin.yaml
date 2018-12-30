@@ -1,0 +1,24 @@
+plugin:
+    name: 'blskye.package::lang.plugin.name'
+    description: 'blskye.package::lang.plugin.description'
+    author: blskye
+    icon: oc-icon-archive
+    homepage: 'https://github.com/EchoWht/oc-package-plugin'
+permissions:
+    blskye.package.url_manage:
+        tab: 'blskye.package::lang.package.url'
+        label: 'blskye.package::lang.package.url'
+navigation:
+    main-menu-item:
+        label: 'blskye.package::lang.package.menu_label'
+        url: blskye/package/url
+        icon: icon-archive
+        permissions:
+            - blskye.package.url_manage
+        sideMenu:
+            side-menu-item:
+                label: 'blskye.package::lang.package.url'
+                url: blskye/package/url
+                icon: icon-link
+                permissions:
+                    - blskye.package.url_manage

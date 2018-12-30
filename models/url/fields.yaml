@@ -1,0 +1,16 @@
+fields:
+    title:
+        label: 'blskye.package::lang.url.title'
+        span: left
+        required: 1
+        type: text
+    url:
+        label: 'blskye.package::lang.package.url'
+        span: right
+        required: 1
+        type: text
+    content:
+        label: 'Rich editor'
+        size: small
+        span: full
+        type: richeditor

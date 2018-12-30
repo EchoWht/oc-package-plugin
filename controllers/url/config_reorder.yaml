@@ -1,0 +1,4 @@
+title: Url
+modelClass: Blskye\Package\Models\Url
+toolbar:
+    buttons: reorder_toolbar

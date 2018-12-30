@@ -1,0 +1,12 @@
+list: $/blskye/package/models/url/columns.yaml
+modelClass: Blskye\Package\Models\Url
+title: Url
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'blskye/package/url/update/:id'
