@@ -13,6 +13,14 @@ class Category extends Model
 
     protected $dates = ['deleted_at'];
 
+    public $belongsToMany = [
+        'url' => [
+            Url::class,
+            'table' => 'blskye_package_url_categories',
+            'key' => 'category_id',
+            'otherKey' => 'url_id'
+        ]
+    ];
 
     /**
      * @var string The database table used by the model.

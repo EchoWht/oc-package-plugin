@@ -26,4 +26,12 @@ class Url extends Model
         'title'=>'required',
         'url'=>'required'
     ];
+    public $belongsToMany = [
+        'categories' => [
+            'Blskye\Package\Models\Category',
+            'table' => 'blskye_package_url_categories',
+            'key' => 'url_id',
+            'otherKey' => 'category_id'
+        ]
+    ];
 }
