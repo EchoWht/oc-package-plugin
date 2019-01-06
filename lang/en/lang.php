@@ -6,7 +6,8 @@
     'package' => [
         'menu_label' => 'Package',
         'menu_description' => 'Manage Package',
-        'url' => 'Url'
+        'url' => 'Url',
+        'category' => 'Category'
     ],
     'url' => [
         'title' => 'Url Title',

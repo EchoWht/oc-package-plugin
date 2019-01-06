@@ -8,6 +8,9 @@ permissions:
     blskye.package.url_manage:
         tab: 'blskye.package::lang.package.url'
         label: 'blskye.package::lang.package.url'
+    blskye.package.category_manage:
+        tab: 'blskye.package::lang.package.category'
+        label: 'blskye.package::lang.package.category'
 navigation:
     main-menu-item:
         label: 'blskye.package::lang.package.menu_label'
@@ -22,3 +25,9 @@ navigation:
                 icon: icon-link
                 permissions:
                     - blskye.package.url_manage
+            side-menu-item2:
+                label: 'blskye.package::lang.package.category'
+                url: blskye/package/categories
+                icon: icon-folder
+                permissions:
+                    - blskye.package.category_manage

@@ -13,3 +13,11 @@ columns:
         label: 'blskye.package::lang.package.url'
         type: text
         width: '100'
+    categories:
+        label: 'blskye.package::lang.package.category'
+        type: text
+        searchable: false
+        invisible: false
+        sortable: false
+        relation: categories
+        valueFrom: name

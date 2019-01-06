@@ -14,3 +14,9 @@ fields:
         size: small
         span: full
         type: richeditor
+    categories:
+        label: 'blskye.package::lang.package.category'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
