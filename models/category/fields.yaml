@@ -1,0 +1,10 @@
+fields:
+    name:
+        label: 'blskye.package::lang.category.name'
+        span: auto
+        type: text
+    description:
+        label: 'blskye.package::lang.category.description'
+        size: small
+        span: full
+        type: richeditor

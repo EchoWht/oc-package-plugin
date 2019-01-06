@@ -1,0 +1,10 @@
+name: Categories
+form: $/blskye/package/models/category/fields.yaml
+modelClass: Blskye\Package\Models\Category
+defaultRedirect: blskye/package/categories
+create:
+    redirect: 'blskye/package/categories/update/:id'
+    redirectClose: blskye/package/categories
+update:
+    redirect: blskye/package/categories
+    redirectClose: blskye/package/categories

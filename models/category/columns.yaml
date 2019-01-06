@@ -1,0 +1,10 @@
+columns:
+    id:
+        label: ID
+        type: text
+    name:
+        label: 'blskye.package::lang.category.name'
+        type: text
+    description:
+        label: 'blskye.package::lang.category.description'
+        type: text
