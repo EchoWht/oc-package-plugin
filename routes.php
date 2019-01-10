@@ -97,3 +97,7 @@ Route::group(['prefix' => 'api/v1'], function() {
         return Response::json(compact('token', 'user'));
     });
 });
+
+
+Route::resource('api/v1/url', 'Blskye\Package\Controllers\api\urlController', ['except' => ['destroy', 'create', 'edit']]);
+Route::get('api/v1/url/{id}/delete', ['as' => 'api/v1/url.delete', 'uses' => 'Blskye\Package\Controllers\api\urlController@destroy']);
