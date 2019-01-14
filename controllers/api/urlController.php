@@ -29,7 +29,7 @@ class urlController extends Controller
 
     public function show($id){
 
-        $data = $this->Url->where('id',$id)->first();
+        $data = $this->Url->where('id',$id)->first()->toArray();
 
         if( count($data) > 0){
 
@@ -37,7 +37,7 @@ class urlController extends Controller
 
         }
 
-        $this->helpers->apiArrayResponseBuilder(400, 'bad request', ['error' => 'invalid key']);
+        return $this->helpers->apiArrayResponseBuilder(400, 'bad request', ['error' => 'invalid key']);
 
     }
 
@@ -63,15 +63,15 @@ class urlController extends Controller
 
     public function update($id, Request $request){
 
+        $data = ['title'=>$request->input('title')];
         $status = $this->Url->where('id',$id)->update($data);
     
         if( $status ){
-            
-            return $this->helpers->apiArrayResponseBuilder(200, 'success', 'Data has been updated successfully.');
+            return $this->helpers->apiArrayResponseBuilder(200, 'success', ['Data has been updated successfully.']);
 
         }else{
 
-            return $this->helpers->apiArrayResponseBuilder(400, 'bad request', 'Error, data failed to update.');
+            return $this->helpers->apiArrayResponseBuilder(400, 'bad request', ['Error, data failed to update.']);
 
         }
     }
@@ -87,7 +87,7 @@ class urlController extends Controller
 
         $this->Url->where('id',$id)->delete();
 
-        return $this->helpers->apiArrayResponseBuilder(200, 'success', 'Data has been deleted successfully.');
+        return $this->helpers->apiArrayResponseBuilder(200, 'success', ['Data has been deleted successfully.']);
     }
 
 
