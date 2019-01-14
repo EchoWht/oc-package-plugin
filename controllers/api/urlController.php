@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use AhmadFatoni\ApiGenerator\Helpers\Helpers;
 use Illuminate\Support\Facades\Validator;
 use Blskye\Package\Models\Url;
+use Tymon\JWTAuth\Facades\JWTAuth;
 class urlController extends Controller
 {
 	protected $Url;
@@ -43,14 +44,31 @@ class urlController extends Controller
 
     public function store(Request $request){
 
-    	$arr = $request->all();
+    	$data=array(
+            'url'=>$request->input('url'),
+            'title'=>$request->input('title')
+        );
 
-        while ( $data = current($arr)) {
-            $this->Url->{key($arr)} = $data;
-            next($arr);
+        $user=null;
+        $userModel = JWTAuth::authenticate($request->input('token'));//获取用户Model
+
+        if ($userModel->methodExists('getAuthApiSigninAttributes')) {
+            $user = $userModel->getAuthApiSigninAttributes();
+        } else {
+            $user = [
+                'id' => $userModel->id,
+                'name' => $userModel->name,
+                'surname' => $userModel->surname,
+                'username' => $userModel->username,
+                'email' => $userModel->email,
+                'is_activated' => $userModel->is_activated,
+            ];
         }
 
-        $validation = Validator::make($request->all(), $this->Url->rules);
+        $this->Url->user_id=$user["id"];
+        $this->Url->title=$data['title'];
+        $this->Url->url=$data['url'];
+        $validation = Validator::make($data, $this->Url->rules);
         
         if( $validation->passes() ){
             $this->Url->save();
