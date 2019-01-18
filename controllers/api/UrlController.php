@@ -8,7 +8,7 @@ use AhmadFatoni\ApiGenerator\Helpers\Helpers;
 use Illuminate\Support\Facades\Validator;
 use Blskye\Package\Models\Url;
 use Tymon\JWTAuth\Facades\JWTAuth;
-class urlController extends Controller
+class UrlController extends Controller
 {
 	protected $Url;
 
@@ -42,41 +42,23 @@ class urlController extends Controller
 
     }
 
+    /**
+     * 保存方法
+     * @param Request $request
+     * @return mixed
+     */
     public function store(Request $request){
-
-    	$data=array(
-            'url'=>$request->input('url'),
-            'title'=>$request->input('title')
-        );
-
-        $user=null;
+        $fillable=$this->Url->getFillable();
+        $data=$request->only($fillable);
         $userModel = JWTAuth::authenticate($request->input('token'));//获取用户Model
-
-        if ($userModel->methodExists('getAuthApiSigninAttributes')) {
-            $user = $userModel->getAuthApiSigninAttributes();
-        } else {
-            $user = [
-                'id' => $userModel->id,
-                'name' => $userModel->name,
-                'surname' => $userModel->surname,
-                'username' => $userModel->username,
-                'email' => $userModel->email,
-                'is_activated' => $userModel->is_activated,
-            ];
-        }
-
-        $this->Url->user_id=$user["id"];
-        $this->Url->title=$data['title'];
-        $this->Url->url=$data['url'];
+        $data['user_id']=$userModel->id;
         $validation = Validator::make($data, $this->Url->rules);
-        
         if( $validation->passes() ){
-            $this->Url->save();
+            $this->Url=Url::create($data);
             return $this->helpers->apiArrayResponseBuilder(201, 'created', ['id' => $this->Url->id]);
         }else{
             return $this->helpers->apiArrayResponseBuilder(400, 'fail', $validation->errors() );
         }
-
     }
 
     public function update($id, Request $request){

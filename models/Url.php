@@ -34,4 +34,10 @@ class Url extends Model
             'otherKey' => 'category_id'
         ]
     ];
+    protected $fillable = [
+        'title','url'
+    ];
+    public function getFillable(){
+        return $this->fillable;
+    }
 }
